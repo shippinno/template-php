@@ -1,0 +1,34 @@
+{
+    "name": "shippinno/template",
+    "description": "A small package for handling template text files.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Hirofumi Tanigami",
+            "email": "hirofumi.tanigami@shippinno.co.jp",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "liquid/liquid": "^1.4",
+        "mockery/mockery": "^1.2",
+        "league/flysystem": "^1.0",
+        "league/flysystem-memory": "^1.0",
+        "tanigami/value-objects": "^0.4.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4",
+        "squizlabs/php_codesniffer": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shippinno\\Template\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shippinno\\Template\\": "tests/"
+        }
+    }
+}
