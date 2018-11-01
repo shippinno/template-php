@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Shippinno\Template;
 
+use League\Flysystem\Adapter\NullAdapter;
 use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 
@@ -14,11 +15,11 @@ abstract class Template
     protected $filesystem;
 
     /**
-     * @param Filesystem $filesystem
+     * @param Filesystem|null $filesystem
      */
-    public function __construct(Filesystem $filesystem)
+    public function __construct(Filesystem $filesystem = null)
     {
-        $this->filesystem = $filesystem;
+        $this->filesystem = is_null($filesystem) ? new Filesystem(new NullAdapter) : $filesystem;
     }
 
     /**
