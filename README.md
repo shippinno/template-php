@@ -1,5 +1,9 @@
 # PHP tool for handling text template files 
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shippinno/template-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/shippinno/template-php/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/shippinno/template-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/shippinno/template-php/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/shippinno/template-php/badges/build.png?b=master)](https://scrutinizer-ci.com/g/shippinno/template-php/build-status/master)
+
 ## Installation
 
 ```sh
