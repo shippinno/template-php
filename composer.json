@@ -15,7 +15,6 @@
         "mockery/mockery": "^1.2",
         "league/flysystem": "^1.0",
         "league/flysystem-memory": "^1.0",
-        "tanigami/value-objects": "^0.4.6",
         "twig/twig": "^2.5"
     },
     "require-dev": {

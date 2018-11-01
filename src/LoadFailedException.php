@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Shippinno\Template;
 
 use Exception;
-use Throwable;
 
 class LoadFailedException extends Exception
 {
