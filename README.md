@@ -27,16 +27,14 @@ It is super easy to load that template and render with variables.
 ```php
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
-use Shippinno\Template\LiquidTemplateLoader;
+use Shippinno\Template\Liquid;
 
 $filesystem = new Filesystem(new Local('/templates'));
-$templateLoader = new LiquidTemplateLoader($filesystem);
-$template = $templateLoader->load('hello');
-
-$template->render(['you' => 'Shippinno']); // => Hello, Shippinno !!
+$liquid = new Liquid($filesystem);
+$liquid->render('hello', ['you' => 'Shippinno']); // => 'Hello, Shippinno !!'
 ```
 
-Template files can be on any “filesystems” as far as [Flysystem](http://flysystem.thephpleague.com/docs/) supports it.
+Template files can be on any “filesystem” as far as [Flysystem](http://flysystem.thephpleague.com/docs/) supports it.
 
 ```php
 use Spatie\Dropbox\Client;
@@ -44,5 +42,6 @@ use Spatie\FlysystemDropbox\DropboxAdapter;
 
 $client = new Client('AUTH_TOKEN');
 $filesystem = new Filesystem(new DropboxAdapter($client));
-$templateLoader = new LiquidTemplateLoader($filesystem);
+$liquid = new Liquid($filesystem);
+// ...
 ```
