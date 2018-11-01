@@ -45,3 +45,11 @@ $filesystem = new Filesystem(new DropboxAdapter($client));
 $liquid = new Liquid($filesystem);
 // ...
 ```
+
+Or you can also just render with a template source.
+
+```
+$twig = new Twig;
+$twig->renderSource('Hello, {{ you }} !!', ['you' => 'Shipiinno']); // => 'Hello, Shippinno !!'
+```
+
