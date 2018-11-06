@@ -17,7 +17,8 @@ Assume that you have a [Liquid](https://shopify.github.io/liquid/) template file
 ```sh
 $ tree -d /templates
 /templates
-`-- hello.liquid 
+`-- hello.liquid
+$
 $ cat /templates/hello.liquid
 Hello, {{ you }} !!
 ```
