@@ -1,4 +1,4 @@
-# PHP tool for handling text template files 
+# Template 
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shippinno/template-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/shippinno/template-php/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/shippinno/template-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/shippinno/template-php/?branch=master)
@@ -17,7 +17,8 @@ Assume that you have a [Liquid](https://shopify.github.io/liquid/) template file
 ```sh
 $ tree -d /templates
 /templates
-|-- hello.liquid 
+`-- hello.liquid
+$
 $ cat /templates/hello.liquid
 Hello, {{ you }} !!
 ```
@@ -48,7 +49,7 @@ $liquid = new Liquid($filesystem);
 
 Or you can also just render with a template source.
 
-```
+```php
 $twig = new Twig;
 $twig->renderSource('Hello, {{ you }} !!', ['you' => 'Shipiinno']); // => 'Hello, Shippinno !!'
 ```
