@@ -1,4 +1,4 @@
-# PHP tool for handling text template files 
+# Template 
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shippinno/template-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/shippinno/template-php/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/shippinno/template-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/shippinno/template-php/?branch=master)
