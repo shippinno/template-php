@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Shippinno\Template;
 
+use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Liquid\Exception\ParseException;
 use Liquid\Exception\RenderException;
@@ -21,7 +22,12 @@ class Liquid extends Template
     public function __construct(Filesystem $filesystem)
     {
         parent::__construct($filesystem);
-        $this->liquid = new LiquidTemplate;
+        if ($filesystem->getAdapter() instanceof Local) {
+            $path = $filesystem->getAdapter()->getPathPrefix();
+        } else {
+            $path = null;
+        }
+        $this->liquid = new LiquidTemplate($path);
     }
 
     /**
