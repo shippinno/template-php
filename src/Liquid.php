@@ -19,10 +19,10 @@ class Liquid extends Template
     /**
      * @param Filesystem $filesystem
      */
-    public function __construct(Filesystem $filesystem)
+    public function __construct(Filesystem $filesystem = null)
     {
         parent::__construct($filesystem);
-        if ($filesystem->getAdapter() instanceof Local) {
+        if (!is_null($filesystem) && $filesystem->getAdapter() instanceof Local) {
             $path = $filesystem->getAdapter()->getPathPrefix();
         } else {
             $path = null;
