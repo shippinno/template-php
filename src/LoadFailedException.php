@@ -3,9 +3,7 @@ declare(strict_types=1);
 
 namespace Shippinno\Template;
 
-use Exception;
-
-class LoadFailedException extends Exception
+class LoadFailedException extends TemplateException
 {
     /**
      * @var string

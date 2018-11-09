@@ -6,7 +6,7 @@ namespace Shippinno\Template;
 use Exception;
 use Throwable;
 
-class TemplateNotFoundException extends Exception
+class TemplateNotFoundException extends TemplateException
 {
     /**
      * @var string

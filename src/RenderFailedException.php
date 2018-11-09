@@ -3,10 +3,9 @@ declare(strict_types=1);
 
 namespace Shippinno\Template;
 
-use Exception;
 use Throwable;
 
-class RenderFailedException extends Exception
+class RenderFailedException extends TemplateException
 {
     /**
      * @var string
