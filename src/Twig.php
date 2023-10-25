@@ -5,8 +5,8 @@ namespace Shippinno\Template;
 
 use League\Flysystem\Filesystem;
 use Throwable;
-use Twig_Environment;
-use Twig_Loader_Array;
+use Twig\Environment as Twig_Environment;
+use Twig\Loader\ArrayLoader as Twig_Loader_Array;
 
 class Twig extends Template
 {

@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace Shippinno\Template;
 
-use League\Flysystem\Adapter\NullAdapter;
-use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemException;
+use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
+use League\Flysystem\UnableToReadFile;
 
 abstract class Template
 {
@@ -19,14 +20,14 @@ abstract class Template
      */
     public function __construct(Filesystem $filesystem = null)
     {
-        $this->filesystem = is_null($filesystem) ? new Filesystem(new NullAdapter) : $filesystem;
+        $this->filesystem = is_null($filesystem) ? new Filesystem(new InMemoryFilesystemAdapter) : $filesystem;
     }
 
     /**
      * @param string $templateName
      * @param array $variables
      * @return string
-     * @throws LoadFailedException
+     * @throws FilesystemException
      * @throws RenderFailedException
      * @throws TemplateNotFoundException
      */
@@ -46,19 +47,16 @@ abstract class Template
     /**
      * @param string $templateName
      * @return string
-     * @throws LoadFailedException
      * @throws TemplateNotFoundException
+     * @throws FilesystemException
      */
     protected function readFile(string $templateName): string
     {
         $fileName = $this->fileName($templateName);
         try {
             $content = $this->filesystem->read($fileName);
-        } catch (FileNotFoundException $e) {
-            throw new TemplateNotFoundException($e->getPath());
-        }
-        if ($content === false) {
-            throw new LoadFailedException($fileName);
+        } catch (UnableToReadFile $e) {
+            throw new TemplateNotFoundException($e->location());
         }
 
         return $content;
